@@ -1,0 +1,4 @@
+player;Герой;32;6
+inventory;
+room;Пещера
+score;23

@@ -1,0 +1,25 @@
+package com.example.dungeon.model;
+
+public class Potion extends Item {
+    private final int heal;
+
+    public Potion(String name, int heal) {
+        super(name);
+        this.heal = heal;
+    }
+
+    @Override
+    public void apply(GameState ctx) {
+        Player p = ctx.getPlayer();
+        int newHp = p.getHp() + heal;
+        p.setHp(newHp);
+        System.out.println("Выпито зелье: +" + heal + " HP. Текущее HP: " + p.getHp());
+
+        // Удаляем зелье из инвентаря
+        p.getInventory().remove(this);
+    }
+
+    public int getHeal() {
+        return heal;
+    }
+}
